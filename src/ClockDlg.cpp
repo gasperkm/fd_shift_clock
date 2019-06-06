@@ -232,6 +232,10 @@ void ClockDlg::ClockDlgPaint(wxPaintEvent& WXUNUSED(event))
    // draw hour, minute and second hand of the clock
    wxDateTime time2 = (wxDateTime::Now()).ToUTC();
    int h2 = time2.GetHour()-3;
+   if(h2 < 0)
+      h2 += 12;
+   else if(h2 > 12)
+      h2 -= 12;
    int m2 = time2.GetMinute();
    int s2 = time2.GetSecond();
 
